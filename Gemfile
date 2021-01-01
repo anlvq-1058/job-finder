@@ -10,8 +10,9 @@ gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 4.0'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
-
-
+gem 'devise'
+gem 'i18n'
+gem 'carrierwave', '~> 2.0'
 
 gem 'bootsnap', '>= 1.4.2', require: false
 
@@ -20,6 +21,9 @@ group :development, :test do
 end
 
 group :development do
+  gem 'rubocop', '~> 1.7', require: false
+  gem "rubocop-checkstyle_formatter", require: false
+  gem "rubocop-rails", "~> 2.3.2", require: false
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.2'
   gem 'spring'
