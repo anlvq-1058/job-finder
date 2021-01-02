@@ -1,15 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>FindJob2</title>
+    <title><%= full_title(yield :title) %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
+    <%= javascript_pack_tag "application", "data-turbolinks-track": "reload" %>
+    <% if check_page yield :title %>
+      <%= stylesheet_link_tag "style.css", media: "all", "data-turbolinks-track": "reload" %>
+    <% else %>
+      <%= stylesheet_link_tag "style_II.css", media: "all", "data-turbolinks-track": "reload" %>
+    <% end %>
   </head>
 
   <body>
+    <div class="jp_top_header_img_wrapper">
+      <%= yield :before_menu %>
+      <%= render "layouts/header" %>
+      <%= yield :after_menu %>
+    </div>
+
     <%= yield %>
+    <%= render "layouts/footer" %>
   </body>
 </html>
