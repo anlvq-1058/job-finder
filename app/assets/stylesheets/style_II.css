@@ -420,7 +420,7 @@ ul {
 }
 .mainmenu ul ul li a,
 .mainmenu ul li.has-mega .mega-menu span a {
-  color: #222;
+  color: white;
   text-transform: capitalize;
   letter-spacing: 1px;
   padding: 8px 10px 8px 20px;
@@ -3406,7 +3406,6 @@ ul {
 /*-- jp footer Wrapper End --*/
 /************************* ---- Pricing CSS Star---- *************************/
 .jp_tittle_main_wrapper {
-  background: url("../images/content/pricing_tittle_bg.jpg") 50% 0 repeat-y;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center 0;
@@ -7241,7 +7240,6 @@ input[type="checkbox"]:checked + label:after {
   display: block;
   width: 100%;
   background: #ffffff;
-  text-transform: capitalize;
   font-size: 15px;
   line-height: 26px;
   color: #888888;
