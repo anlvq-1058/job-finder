@@ -1,0 +1,56 @@
+.tab-content {
+  .birthday {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #eee;
+  }
+}
+
+.login_wrapper {
+  .new_user {
+    input {
+      border: 1px solid #eee;
+      border-radius: 5px;
+      display: block;
+      padding: 10px;
+      width: 100%;
+    }
+
+    #user_remember_me {
+      display: none;
+    }
+  }
+}
+
+#error_explanation {
+  font-size: 16px;
+  color: red;
+
+  h2 {
+    font-size: 18px;
+  }
+}
+
+.require {
+  &::after {
+    content: "*";
+    color: red;
+  }
+}
+
+.avatar {
+  display: inline-block;
+  width: 35px;
+  border-radius: 50%;
+}
+
+.infor-dropdow {
+  width: 160px;
+  margin: auto;
+
+  .btn-group {
+    width: 100%;
+  }
+}

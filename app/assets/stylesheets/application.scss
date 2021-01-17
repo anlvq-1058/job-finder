@@ -1,12 +1,15 @@
-
+/*
+*= require bootstrap
+*= require_tree .
+*= require_self
+*/
 @import "animate.css";
-@import "bootstrap.css";
 @import "flaticon.css";
 @import "font-awesome.css";
+@import "custom.scss";
 @import "fonts.css";
 @import "magnific-popup.css";
 @import "owl.carousel.css";
 @import "reset.css";
 @import "responsive_map.css";
 @import "responsive.css";
-@import "responsive2.css";
