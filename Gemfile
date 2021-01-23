@@ -13,6 +13,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise'
 gem 'i18n'
 gem 'carrierwave', '~> 2.0'
+gem "recaptcha"
+gem 'toastr-rails'
 
 gem 'bootsnap', '>= 1.4.2', require: false
 
