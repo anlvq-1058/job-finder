@@ -19,6 +19,7 @@
             <h2>or</h2>
             <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
               <%= render "devise/shared/error_messages", resource: resource %>
+              <%= flash[:recaptcha_error] %>
               <div class="formsix-pos">
                 <div class="form-group i-email">
                   <%= f.label :email, class: "require" %>
@@ -43,6 +44,9 @@
                   </a>
                 </div>
               <% end %>
+              <div class="form-group">
+                <%= recaptcha_tags %>
+              </div>
               <div class="login_btn_wrapper">
                 <%= f.submit "Log in", class: "btn btn-primary login_btn" %>
               </div>
