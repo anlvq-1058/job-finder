@@ -15,7 +15,7 @@ gem 'i18n'
 gem 'carrierwave', '~> 2.0'
 gem "recaptcha"
 gem 'toastr-rails'
-
+gem "figaro"
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
