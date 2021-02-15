@@ -1,7 +1,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # prepend_before_action :check_captcha, only: :create
   before_action :configure_sign_up_params, only: :create
-  before_action :configure_update_params, only: :update
+  before_action :configure_account_update_params, only: :update
 
   protected
 
@@ -12,7 +12,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
   end
 
-  def configure_update_params
+  def configure_account_update_params
     devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:name, :email, :password,
       :password_confirmation, :current_password, :avatar, :avatar_cache, :remove_avatar) }
   end

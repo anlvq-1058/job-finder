@@ -62,3 +62,8 @@
   font-weight: 600;
   text-transform: capitalize;
 }
+
+.field_with_errors input {
+  border-color: red !important;
+  background-color: #ff535340 !important;
+}
