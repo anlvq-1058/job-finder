@@ -1,11 +1,7 @@
 class Users::SessionsController < Devise::SessionsController
   # prepend_before_action :check_captcha, only: [:create] 
 
-  def create
-    super
-  end
-
-  private
+  protected
   
   # def check_captcha
   #   unless verify_recaptcha
@@ -13,4 +9,9 @@ class Users::SessionsController < Devise::SessionsController
   #     respond_with_navigational(resource) { render :new }
   #   end
   # end
+
+  def after_sign_in_path_for user
+    return root_url if current_user.user?
+    return admin_root_url if current_user.admin?
+  end
 end
