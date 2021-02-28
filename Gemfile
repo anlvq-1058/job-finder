@@ -10,13 +10,16 @@ gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 4.0'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
-gem 'devise'
 gem 'i18n'
 gem 'carrierwave', '~> 2.0'
 gem "recaptcha"
 gem 'toastr-rails'
 gem "figaro"
 gem 'bootsnap', '>= 1.4.2', require: false
+gem "devise"
+gem "omniauth", "~> 1.9.1"
+gem "omniauth-google-oauth2"
+gem "omniauth-facebook"
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

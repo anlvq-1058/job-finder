@@ -10,16 +10,21 @@
           <div class="login_wrapper">
             <div class="row">
               <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
-                <a href="#" class="btn btn-primary"> <span>Login with Facebook</span> <i class="fab fa-facebook"></i> </a>
+                <%= link_to user_facebook_omniauth_authorize_path, class: "btn btn-primary" do %>
+                  <span>Login with Facebook</span> <i class="fab fa-facebook"></i> 
+                <% end %>
               </div>
               <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
-                <a href="#" class="btn btn-primary google-plus"> Login  with Google <i class="fab fa-google-plus"></i> </a>
+                <%= link_to user_google_oauth2_omniauth_authorize_path, class: "btn btn-primary google-plus" do %>
+                Login  with Google <i class="fab fa-google-plus"></i>
+                <% end %>
               </div>
             </div>
             <h2>or</h2>
             <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-              <%= render "devise/shared/error_messages", resource: resource %>
-              <%= flash[:recaptcha_error] %>
+              <!-- <%= flash[:recaptcha_error] %> -->
+              <p class="notice"><%= notice %></p>
+              <p class="alert"><%= alert %></p>
               <div class="formsix-pos">
                 <div class="form-group i-email">
                   <%= f.label :email, class: "require" %>
