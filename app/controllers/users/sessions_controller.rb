@@ -11,7 +11,7 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   def after_sign_in_path_for user
-    return root_url if current_user.user?
-    return admin_root_url if current_user.admin?
+    return root_url if current_user.candidate?
+    return admin_root_url if current_user.recruiter?
   end
 end

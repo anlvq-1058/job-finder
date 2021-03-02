@@ -58,14 +58,14 @@
               <div class="btn-group">
                 <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <% if current_user.avatar.url.present? %>
-                    <%= image_tag current_user.avatar.url, class: "avatar" %>
+                    <%= image_tag current_user.avatar.url, class: "avatar ava-small" %>
                   <% else %>
-                    <%= image_tag "content/default-avatar.png", class: "avatar" %>
+                    <%= image_tag "content/default-avatar.png", class: "avatar ava-small" %>
                   <% end %>
-                  <%= current_user.name %><i class="fa fa-angle-down"></i>
+                  <span><%= current_user.name %> <i class="fa fa-angle-down"></i></span>
                 </button>
                 <div class="dropdown-menu">
-                  <a class="dropdown-item" href="#">Action</a>
+                  <%= link_to "Profile", edit_user_registration_path, class: "dropdown-item" %>
                   <a class="dropdown-item" href="#">Another action</a>
                   <a class="dropdown-item" href="#">Something else here</a>
                   <div class="dropdown-divider"></div>

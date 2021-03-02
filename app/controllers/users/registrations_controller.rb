@@ -14,7 +14,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def configure_account_update_params
     devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:name, :email, :password,
-      :password_confirmation, :current_password, :avatar, :avatar_cache, :remove_avatar) }
+      :password_confirmation, :current_password, :avatar, :avatar_cache, :remove_avatar, :birthday) }
   end
 
   # def check_captcha
