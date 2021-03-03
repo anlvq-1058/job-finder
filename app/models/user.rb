@@ -8,6 +8,7 @@ class User < ApplicationRecord
   validates :name, presence: true, length: {minimum:1, maximum:50}
   validate :avatar_size
 
+  has_many :resumes, dependent: :destroy
   enum role: {candidate: 0, recruiter: 1}
 
   def self.from_omniauth(auth)

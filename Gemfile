@@ -20,6 +20,7 @@ gem "devise"
 gem "omniauth", "~> 1.9.1"
 gem "omniauth-google-oauth2"
 gem "omniauth-facebook"
+gem "cocoon"
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
