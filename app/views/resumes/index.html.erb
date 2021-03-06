@@ -1,0 +1,46 @@
+<%= provide :title, "Your Resumes" %>
+<div class="jp_cp_profile_main_wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+        <div class="jp_cp_left_side_wrapper">
+          <div class="jp_cp_left_pro_wallpaper">
+            <%= show_avatar "large" %>
+            <p>Welcome back,</p>
+            <h3><%= current_user.name %></h3>
+          </div>
+          <div class="jp_cp_rd_wrapper">
+            <ul>
+              <li><a href="#"><i class="fa fa-download"></i> &nbsp;Download Resume</a></li>
+              <li><a href="#"><i class="fa fa-phone"></i> &nbsp;Contact candidate</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 jp_cl_right_bar">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="row border-bottom">
+              <div class="col-sm-6">
+                <h2>List resumes</h2>
+              </div>
+              <div class="col-sm-6 ">
+                <%= link_to new_resume_path, class: "btn btn-info float-right" do %>
+                <span>Add new</span>
+                <i class="fas fa-plus"></i>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <% if @resumes.any? %>
+              <%= render partial: "resumes/resume", collection: @resumes, as: "resume" %>
+            <% else %>
+              <p class="noti">Let Make A New Resume</p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

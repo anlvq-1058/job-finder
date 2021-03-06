@@ -42,14 +42,19 @@
 
 .avatar {
   display: inline-block;
-  border-radius: 50%;
 
   &.ava-medium {
     width: 150px;
+  border-radius: 50%;
   }
 
   &.ava-small {
     width: 35px;
+    border-radius: 50%;
+  }
+
+  &.ava-large {
+    width: 100%;
   }
 }
 
@@ -100,4 +105,17 @@ a.dropdown-item {
 .subtext {
   font-size: 13px;
   font-style: italic;
+}
+
+.float-right {
+  float: right;
+}
+
+.border-bottom {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #22c0e9;
+}
+
+img {
+  width: 100%;
 }

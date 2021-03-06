@@ -17,6 +17,7 @@ require("packs/jquery.countTo.js")
 require("packs/jquery.magnific-popup.js")
 require("packs/jquery.menu-aim.js")
 require("packs/jquery.inview.min.js")
+require("@nathanvda/cocoon")
 
 import "@fortawesome/fontawesome-free/css/all"
 

@@ -16,4 +16,14 @@ module ApplicationHelper
       flash_messages << text.html_safe if message
     end.join("\n").html_safe
   end
+
+  def show_avatar avatar_size
+    image_tag current_user.avatar.url || "content/default-avatar.png",
+    class: "avatar ava-#{avatar_size}"
+  end
+
+  def resume_avatar resume, avatar_size
+    image_tag resume.avatar.url || "content/default-avatar.png",
+    class: "ava-#{avatar_size}"
+  end
 end
