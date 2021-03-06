@@ -48,7 +48,7 @@
     <!--Form Group-->
     <div class="form-group col-md-6 col-sm-6 col-xs-12">
       <%= f.label :birthday, "Birthday:" %>
-      <%= f.date_field :birthday, class: "birthday" %>
+      <%= f.date_field :birthday, class: "birthday form-control" %>
     </div>
     <% unless yield(:title).eql?("Edit #{resource_name.to_s.humanize}")  %>
     <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">

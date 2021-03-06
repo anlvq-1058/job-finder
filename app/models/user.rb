@@ -8,7 +8,9 @@ class User < ApplicationRecord
   validates :name, presence: true, length: {minimum:1, maximum:50}
   validate :avatar_size
 
+  has_many :resumes, dependent: :destroy
   enum role: {candidate: 0, recruiter: 1}
+  enum status: {active: 0, inactive: 1}, _suffix: true
 
   def self.from_omniauth(auth)
     result = User.where(email: auth.info.email).first
