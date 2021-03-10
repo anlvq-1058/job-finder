@@ -5,18 +5,20 @@ class ResumesController < ApplicationController
   end
 
   def new
-    @resumes = current_user.resumes.build.tap do |r|
+    @resume = current_user.resumes.build.tap do |r|
       r.add_ons.build
+      r.resume_skills.build
     end
+    @skills = Skill.pluck :name, :id
   end
 
   def create
     @resume = current_user.resumes.build resume_params
     if @resume.save
-      flash[:success] = t "notification.create_success"
-      redirect_to root_url
+      flash[:success] = t "create success"
+      redirect_to resumes_path
     else
-      flash.now[:danger] = t "notification.create_fail"
+      flash.now[:danger] = t "create fail"
       render :new
     end
   end
@@ -28,7 +30,13 @@ class ResumesController < ApplicationController
   end
 
   def destroy
-    
+    if @resume.destroy
+      flash[:success] = t "destroy success"
+      redirect_to resumes_path
+    else
+      flash.now[:danger] = t "destroy fail"
+      redirect_to resumes_path
+    end
   end
 
   private
@@ -38,6 +46,9 @@ class ResumesController < ApplicationController
   end
 
   def load_resume
-    resume = Resume.find_by id: params[:id]
+    @resume = Resume.find_by id: params[:id]
+    return if @resume.present?
+
+    flash[:danger] = "Not found resume"
   end
 end

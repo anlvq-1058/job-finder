@@ -10,6 +10,7 @@ class User < ApplicationRecord
 
   has_many :resumes, dependent: :destroy
   enum role: {candidate: 0, recruiter: 1}
+  enum status: {active: 0, inactive: 1}, _suffix: true
 
   def self.from_omniauth(auth)
     result = User.where(email: auth.info.email).first
