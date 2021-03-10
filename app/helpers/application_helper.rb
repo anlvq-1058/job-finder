@@ -22,8 +22,8 @@ module ApplicationHelper
     class: "avatar ava-#{avatar_size}"
   end
 
-  def resume_avatar resume
+  def resume_avatar resume, avatar_size
     image_tag resume.avatar.url || "content/default-avatar.png",
-    {class: "resume-avatar "}
+    class: "ava-#{avatar_size}"
   end
 end

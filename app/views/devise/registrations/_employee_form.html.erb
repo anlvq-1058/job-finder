@@ -34,25 +34,26 @@
           <%= f.hidden_field :avatar_cache %>
         <% end %>
       <% else %>
-        <%= f.label :avatar, class: "select-avatar point" do %>
-          <%= show_avatar "medium" %>
-          <div class="top-over">
-            <span>Select Image</span>
-          </div>
+        <% if current_user.avatar.url.present? %>
+          <%= f.label :avatar, class: "point" do %>
+            <%= image_tag current_user.avatar.url, class: "avatar ava-medium" %>
+          <% end %>
+          <%= f.file_field :avatar, class: "hidden" %>
+        <% else %>
+          <%= image_tag "content/default-avatar.png", class: "avatar ava-medium" %>
         <% end %>
-        <%= f.file_field :avatar, class: "chose-img hidden" %>
       <% end %>
       <p>JPG, JPEG, GIF, PNG - 5MB MAX SIZE</p>
     </div>
     <!--Form Group-->
     <div class="form-group col-md-6 col-sm-6 col-xs-12">
       <%= f.label :birthday, "Birthday:" %>
-      <%= f.date_field :birthday, class: "birthday form-control" %>
+      <%= f.date_field :birthday, class: "birthday" %>
     </div>
     <% unless yield(:title).eql?("Edit #{resource_name.to_s.humanize}")  %>
     <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <div class="check-box text-center">
-        <%= f.check_box :role, {}, "recruiter", "candidate" %>
+        <%= f.check_box :role %>
         <%= f.label :role, "For Recruiter" %>
       </div>
     </div>

@@ -32,11 +32,13 @@
               </div>
             </div>
           </div>
+          <div class="row">
             <% if @resumes.any? %>
               <%= render partial: "resumes/resume", collection: @resumes, as: "resume" %>
             <% else %>
               <p class="noti">Let Make A New Resume</p>
             <% end %>
+          </div>
         </div>
       </div>
     </div>
