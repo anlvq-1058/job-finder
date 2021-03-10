@@ -166,8 +166,16 @@ img {
 }
 
 .resume-avatar {
-  width: 300px;
-  height: 400px;
   object-fit: cover;
   object-position: center;
+
+  &.large {
+    width: 300px;
+    height: 400px;
+  }
+
+  &.medium {
+    width: 75px;
+    height: 77px;
+  }
 }
