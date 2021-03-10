@@ -6,7 +6,9 @@
       </div>
       <div class="jp_recent_resume_cont_wrapper">
         <h3><%= resume.title %></h3>
-        <p><i class="fa fa-folder-open-o"></i> <a href="#">UI Designer</a></p>
+        <p>
+          <%= resume.position %>
+        </p>
       </div>
       <div class="jp_recent_resume_btn_wrapper">
         <i class="fas fa-clock"></i>
@@ -15,7 +17,7 @@
     </div>
     <div class="row">
       <div class="col">
-        <%= link_to resume, class: "btn btn-outline-danger float-right", method: :delete, data: {confirm: "Are you sure want to delete this resume?"} do %>
+        <%= link_to resume, method: :delete, data: {confirm: "Are you sure want to delete this resume?"}, class: "btn btn-outline-danger float-right" do %>
           <i class="fas fa-trash"></i>
           Delete
         <% end %>
