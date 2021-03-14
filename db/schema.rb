@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_06_144336) do
+ActiveRecord::Schema.define(version: 2021_03_11_145001) do
 
   create_table "add_ons", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
@@ -98,13 +98,6 @@ ActiveRecord::Schema.define(version: 2021_03_06_144336) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "social_logins", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "provider"
-    t.string "uid"
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_social_logins_on_user_id"
-  end
-
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -127,6 +120,8 @@ ActiveRecord::Schema.define(version: 2021_03_06_144336) do
     t.string "provider"
     t.string "uid"
     t.string "image"
+    t.integer "status", default: 0
+    t.integer "gender", default: 0
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -141,5 +136,4 @@ ActiveRecord::Schema.define(version: 2021_03_06_144336) do
   add_foreign_key "resume_skills", "resumes"
   add_foreign_key "resume_skills", "skills"
   add_foreign_key "resumes", "users"
-  add_foreign_key "social_logins", "users"
 end

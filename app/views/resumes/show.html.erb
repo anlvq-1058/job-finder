@@ -1,0 +1,37 @@
+<%= provide :title, @resume.title %>
+<div class="jp_cp_profile_main_wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+        <div class="jp_cp_left_side_wrapper">
+          <div class="jp_cp_left_pro_wallpaper">
+            <%= resume_avatar @resume, "large" %>
+            <h2><%= @resume.user.name %></h2>
+            <p><%= @resume.position %></p>
+          </div>
+          <div class="jp_cp_rd_wrapper">
+            <label for="">Gender: </label>
+            <p><%= @resume.user.gender %></p>
+            <label for="">Birthday: </label>
+            <p><%= @resume.user.birthday.strftime("%d/%m/%Y") %></p>
+            <label for="">Address: </label>
+            <p><%= @resume.address %></p>
+            <label for="">Email: </label>
+            <p><%= @resume.email %></p>
+            <label for="">Phone Number: </label>
+            <p><%= @resume.phone_number %></p>
+            <% if @resume.website.present? %>
+              <label for="">Website: </label>
+              <p><%= @resume.website %></p>              
+            <% end %>
+            <h3>Skill</h3>
+            <%= render partial: "resumes/skill", collection: @resume.resume_skills, as: :resume_skill %>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+        <%= render partial: "add_on", collection: @resume.add_ons, as: :add_on %>
+      </div>
+    </div>
+  </div>
+</div>
