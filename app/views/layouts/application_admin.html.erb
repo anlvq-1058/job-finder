@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= full_title(yield :title) %></title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "admin_application", media: "all", "data-turbolinks-track": "reload" %>
+    <%= javascript_pack_tag "application", "data-turbolinks-track": "reload" %>
+  </head>
+  <body class="body admin-layout">
+    <div class="sidebar" data-color="purple" data-background-color="white">
+      <%= render "layouts/sidebar_admin" %>
+    </div>
+    <div class="main-panel">
+      <!-- Navbar -->
+      <%= render "layouts/nav_bar" %>
+      <!-- End Navbar -->
+      <div class="content">
+        <div class="container-fluid">
+          <%= yield %>
+        </div>
+      </div>
+      <%= render 'layouts/admin_footer' %>
+    </div>
+  </body>
+</html>
