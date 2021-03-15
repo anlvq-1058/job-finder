@@ -1,5 +1,7 @@
 class ResumesController < ApplicationController
   before_action :load_resume, except: %i(index new create)
+  before_action :check_resume_number, only: %i(new create)
+
   def index
     @resumes = current_user.resumes
   end
@@ -25,8 +27,18 @@ class ResumesController < ApplicationController
 
   def show; end
 
+  def edit
+    @skills = @resume.skills.pluck :name, :id
+  end
+
   def update
-    
+    if @resume.update resume_params
+      flash[:success] = "Update resume success"
+      redirect_to resumes_path
+    else
+      flash[:danger] = "Update resume false"
+      redirect_to resumes_path
+    end
   end
 
   def destroy
@@ -50,5 +62,12 @@ class ResumesController < ApplicationController
     return if @resume.present?
 
     flash[:danger] = "Not found resume"
+  end
+
+  def check_resume_number
+    return if current_user.resumes.count < 2
+
+    flash[:danger] = "You only create 2 resume"
+    redirect_to resumes_path
   end
 end

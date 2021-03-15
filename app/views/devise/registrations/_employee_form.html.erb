@@ -49,20 +49,26 @@
       <%= f.label :birthday, "Birthday:" %>
       <%= f.date_field :birthday, class: "birthday form-control" %>
     </div>
-    <% unless yield(:title).eql?("Edit #{resource_name.to_s.humanize}")  %>
+  </div>
+  <div class="form-group row">
+    <%= f.label :gender, "Gender", class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-5">
+      <%= f.label :gender_male, "Male" %>
+      <%= f.radio_button :gender, "male", checked: true %>
+    </div>
+    <div class="col-sm-5">
+      <%= f.label :gender_female, "Female" %>
+      <%= f.radio_button :gender, "female" %>
+    </div>
+  </div>
+  <% unless yield(:title).eql?("Edit #{resource_name.to_s.humanize}")  %>
     <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <div class="check-box text-center">
         <%= f.check_box :role, {}, "recruiter", "candidate" %>
         <%= f.label :role, "For Recruiter" %>
       </div>
     </div>
-    <% else %>
-    <div class="form-group col-md-6 col-sm-6 col-xs-12">
-      <%= f.label :current_password, "Current Password:", class: "require" %>
-      <%= f.password_field :current_password %>
-    </div>
-    <% end %>
-  </div>
+  <% end %>
   <div class="form-group">
     <!-- <%= recaptcha_tags %> -->
   </div>

@@ -85,7 +85,7 @@
   </div>
   <div class="row">
     <div class="col">
-      <%= f.submit "Create", class: "btn btn-info float-right" %>
+      <%= f.submit yield(:btn) , class: "btn btn-info float-right" %>
     </div>
   </div>
 <% end %>

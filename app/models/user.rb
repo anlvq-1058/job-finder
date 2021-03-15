@@ -9,8 +9,10 @@ class User < ApplicationRecord
   validate :avatar_size
 
   has_many :resumes, dependent: :destroy
+  
   enum role: {candidate: 0, recruiter: 1}
   enum status: {active: 0, inactive: 1}, _suffix: true
+  enum gender: {male: 0, female: 1}
 
   def self.from_omniauth(auth)
     result = User.where(email: auth.info.email).first
@@ -24,7 +26,7 @@ class User < ApplicationRecord
         user.image = auth.info.image
         user.uid = auth.uid
         user.provider = auth.provider
-
+        user.birthday = "2000-01-1"
         #  If you are using confirmable and the provider(s) you use validate emails
         user.skip_confirmation!
       end
@@ -38,5 +40,4 @@ class User < ApplicationRecord
     
     errors.add(:avatar, "file size must be lower than 5MB")
   end
-
 end
