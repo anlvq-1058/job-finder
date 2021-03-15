@@ -21,6 +21,8 @@ require("packs/jquery.magnific-popup.js")
 require("packs/jquery.menu-aim.js")
 require("packs/jquery.inview.min.js")
 require("packs/show_image.js")
+require("packs/bootstrap-material-design.min.js")
+require("packs/material-dashboard.min.js")
 require("@nathanvda/cocoon")
 require('select2')
 
