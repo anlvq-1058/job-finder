@@ -23,6 +23,8 @@ require("packs/jquery.inview.min.js")
 require("packs/show_image.js")
 require("packs/bootstrap-material-design.min.js")
 require("packs/material-dashboard.min.js")
+require("packs/perfect-scrollbar.jquery.min.js")
+require("packs/bootstrap-notify.js")
 require("@nathanvda/cocoon")
 require('select2')
 

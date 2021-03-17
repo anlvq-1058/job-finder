@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: "dash_broads#index"
     resources :dash_broads, only: :index
+    resources :companies, except: %i(destroy index)
     devise_for :users, path: "", only: :sessions, controllers: {
         sessions: "admin/sessions"}
   end

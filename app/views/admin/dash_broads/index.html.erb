@@ -1,0 +1,6 @@
+<% if @check_company_create.blank? %>
+  <div class="alert alert-warning" role="alert">
+  You need to update company info. Click 
+  <%= link_to 'here', new_admin_company_path %>
+  </div>
+<% end %>
