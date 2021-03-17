@@ -1,0 +1,7 @@
+<div id="user_status">
+  <% if current_user.active_status? %>
+    <%= render "inactive_user" %>
+  <% else %>
+    <%= render "active_user" %>
+  <% end %>
+</div>
