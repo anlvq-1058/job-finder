@@ -4,6 +4,9 @@ Rails.application.routes.draw do
              sessions: "users/sessions"}
 
   root to: 'static_pages#home'
+  resources :resumes
+  resources :active_users, only: :update
+  resources :inactive_users, only: :update
   get '/contact', to: 'static_pages#contact'
 
   namespace :admin do
