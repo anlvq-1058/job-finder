@@ -9,6 +9,7 @@ class User < ApplicationRecord
   validate :avatar_size
 
   has_many :resumes, dependent: :destroy
+  has_one :company
   
   enum role: {candidate: 0, recruiter: 1}
   enum status: {active: 0, inactive: 1}, _suffix: true

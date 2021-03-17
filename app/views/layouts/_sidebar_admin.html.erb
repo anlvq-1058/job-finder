@@ -8,12 +8,19 @@
 </div>
 <div class="sidebar-wrapper">
   <ul class="nav">
-    <li class="nav-item active  ">
+    <li class="nav-item active">
       <%= link_to admin_root_path, class: "nav-link" do %>
         <i class="fas fa-stream"></i>
         Dashbroad
       <% end %>
     </li>
-    <!-- your sidebar here -->
+    <% if current_user.company.present? %>
+      <li class="nav-item">
+        <%= link_to edit_admin_company_path(current_user.company), class: "nav-link" do %>
+          <i class="fas fa-building"></i>
+          Edit Company
+        <% end %>
+      </li>
+    <% end %>
   </ul>
 </div>

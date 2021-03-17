@@ -26,4 +26,9 @@ module ApplicationHelper
     image_tag resume.avatar.url || "content/default-avatar.png",
     {class: "resume-avatar #{size}"}
   end
+
+  def show_company_avatar avatar_size
+    image_tag current_user.company.avatar.url || "content/default-avatar.png",
+    class: "avatar ava-#{avatar_size}"
+  end
 end
