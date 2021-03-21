@@ -19,7 +19,7 @@ class Resume < ApplicationRecord
   validates :phone_number, presence: true, length: {minimum:1, maximum:10}
   validate :avatar_size
 
-  enum status: {public: 0, private: 1}, _suffix: true
+  enum status: {private: 0, public: 1}, _suffix: true
 
   private
 

@@ -179,3 +179,25 @@ img {
     height: 77px;
   }
 }
+
+.jp_cp_profile_main_wrapper {
+  .container {
+    background-color: white;
+
+    &>.row {
+      padding: 20px;
+
+      form {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.primary_resume {
+  position: absolute;
+  top: 20px;
+  color: #ff9800;
+  left: 0;
+  font-size: 25px;
+}
