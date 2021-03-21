@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_16_112644) do
+ActiveRecord::Schema.define(version: 2021_03_17_150448) do
 
   create_table "add_ons", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
@@ -85,7 +85,7 @@ ActiveRecord::Schema.define(version: 2021_03_16_112644) do
     t.string "address"
     t.string "facebook"
     t.string "website"
-    t.integer "status"
+    t.integer "status", default: 0
     t.string "phone_number"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

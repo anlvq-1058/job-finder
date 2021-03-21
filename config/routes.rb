@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :resumes
   resources :active_users, only: :update
   resources :inactive_users, only: :update
+  resources :public_resumes, only: :update
+  resources :private_resumes, only: :update
   get '/contact', to: 'static_pages#contact'
 
   namespace :admin do

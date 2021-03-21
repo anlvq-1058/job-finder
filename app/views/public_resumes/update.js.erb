@@ -1,0 +1,6 @@
+$("#resume-status-<%= @resume.id %>").html('')
+$(".resume-<%= @resume.id %>").html("<i class='fas fa-star' ></i>")
+<% if @other_resume.present? %>
+  $("#resume-status-<%= @other_resume.first.id %>").html('<%= j render "resumes/public_status", resume: @other_resume.first %>')
+  $(".resume-<%= @other_resume.first.id %>").html('')
+<% end %>
