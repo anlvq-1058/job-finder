@@ -1,3 +1,3 @@
 class Skill < ApplicationRecord
-  has_many :resume_skills, dependent: :destroy
+  has_many :resume_skills
 end

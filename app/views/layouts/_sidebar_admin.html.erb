@@ -21,6 +21,24 @@
           Edit Company
         <% end %>
       </li>
+      <li class="nav-item">
+        <%= link_to "#manage-jobs", data: {toggle: "collapse"},
+        class: "nav-link", aria: {expanded: "false", controls: "manage-jobs"} do %>
+          <i class="fas fa-scroll"></i>
+          <span>Job</span>
+          <i class="fas fa-sort-down float-right"></i>
+        <% end %>
+        <div class="collapse" id="manage-jobs">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item">
+              <%= link_to "Create job", new_admin_job_path %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "List job", admin_jobs_path %>
+            </li>
+          </ul>
+        </div>
+      </li>
     <% end %>
   </ul>
 </div>
