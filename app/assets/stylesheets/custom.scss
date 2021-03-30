@@ -59,6 +59,7 @@
 
   &.ava-large {
     width: 100%;
+    padding: 5px
   }
 }
 
@@ -215,4 +216,49 @@ img {
 @keyframes fadeout {
   from { display: block; }
   to   { display: none; }
+}
+
+.card-horizontal {
+  display: flex;
+  flex: 1 2 auto;
+
+  .company-image {
+    width: 180px;
+  }
+}
+
+.company-job {
+  .location,
+  .gender,
+  .job-type {
+    font-size: 13px;
+    padding: 3px 6px;
+  }
+
+  p {
+    margin-bottom: 0.4rem;
+  }
+
+  .end-at {
+    color: darkred;
+    font-weight: 500;
+  }
+  
+  .salary {
+    color: green;
+    font-weight: 700;
+  }
+
+  .dot-menu {
+    position: absolute;
+    right: 2px;
+    top: 2px;
+    z-index: 2;
+
+    .nav-item {
+      &:hover {
+        background-color: #e9e9e9;
+      }
+    }
+  }
 }

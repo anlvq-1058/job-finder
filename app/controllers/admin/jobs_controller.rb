@@ -1,7 +1,8 @@
 class Admin::JobsController < Admin::AdminController
+  before_action :load_job, only: %i(edit update destroy)
 
   def index
-    @jobs = current_user.company.jobs
+    @jobs = current_user.company.jobs.order(created_at: :desc).page(params[:page]).per(12)
   end
 
   def new
@@ -49,7 +50,7 @@ class Admin::JobsController < Admin::AdminController
   end
   
   def load_job
-    @job = Job.find_by id: params(:id)
+    @job = Job.find_by id: params[:id]
     return if @job.present?
 
     flash[:danger] = "Job not found"
