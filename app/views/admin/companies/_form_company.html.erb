@@ -22,9 +22,7 @@
         <div class="col-md-4">
           <div class="form-group row">
             <%= f.label :founded, "Company Founded: ", class: "col-sm-6" %>
-            <div class="col-sm-6">
-              <%= date_field_tag "company[founded]", company.founded, {class: "form-control"} %>
-            </div>
+            <%= date_field_tag "company[founded]", company.founded, {class: "form-control col-sm-6"} %>
           </div>
         </div>
       </div>

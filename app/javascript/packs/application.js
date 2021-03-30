@@ -38,13 +38,10 @@ document.addEventListener("turbolinks:load", function() {
   })
 })
 
-$(document).ready(function name() {
-  $('.js-source-states').select2();
-})
-
 import { showPreviewImage } from './show_image';
 
 $(document).on('turbolinks:load', function () {
+  $('.js-source-states').select2();
   showPreviewImage();
 });
 
