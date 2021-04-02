@@ -6,6 +6,7 @@ class Admin::JobsController < Admin::AdminController
 
   def new
     @job = current_user.company.jobs.build
+    @job.job_locations.build
   end
 
   def create
@@ -22,10 +23,25 @@ class Admin::JobsController < Admin::AdminController
   def edit; end
 
   def update
-    
+    if @job.update job_params
+      flash[:success] = "Update success"
+      redirect_to admin_jobs_path
+    else
+      flash[:danger] = "Update false"
+      render admin_job_path(@job)
+    end
   end
   
-  
+  def destroy
+    if @job.destroy
+      flash[:success] = t "destroy success"
+      redirect_to admin_jobs_path
+    else
+      flash.now[:danger] = t "destroy fail"
+      redirect_to admin_jobs_path
+    end    
+  end
+
   private
 
   def job_params

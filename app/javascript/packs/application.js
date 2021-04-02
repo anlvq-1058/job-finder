@@ -38,11 +38,12 @@ document.addEventListener("turbolinks:load", function() {
   })
 })
 
-import { showPreviewImage } from './show_image';
+import { showPreviewImage, fadeout_error } from './show_image';
 
 $(document).on('turbolinks:load', function () {
   $('.js-source-states').select2();
   showPreviewImage();
+  fadeout_error();
 });
 
 global.toastr = require("toastr")

@@ -3,3 +3,9 @@ export function showPreviewImage() {
     $('.select-avatar > img').attr("src", URL.createObjectURL(this.files[0]));
   });
 }
+
+export function fadeout_error() {
+  window.setTimeout(function(){
+    $('#error_explanation').addClass('fadeout');
+  }, 3000);
+}
