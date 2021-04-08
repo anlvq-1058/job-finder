@@ -22,6 +22,7 @@ gem "omniauth-google-oauth2"
 gem "omniauth-facebook"
 gem "cocoon"
 gem "ckeditor"
+gem "kaminari"
 
 
 group :development, :test do
