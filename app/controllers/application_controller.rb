@@ -19,8 +19,19 @@ class ApplicationController < ActionController::Base
     redirect_to root_path
   end
 
+  # def base_layout
+  #   return "application" if current_user.blank? 
+  #   current_user.recruiter? ? "application_admin" : "application"
+  # end
+
   def base_layout
-    return "application" if current_user.blank? 
-    current_user.recruiter? ? "application_admin" : "application"
+    
+    binding.pry
+    
+    if devise_controller? && devise_mapping.name == :admin_user && current_user.recruiter?
+      "application_admin"
+    else
+      "application"
+    end
   end
 end

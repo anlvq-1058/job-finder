@@ -13,11 +13,12 @@ Rails.application.routes.draw do
   get '/contact', to: 'static_pages#contact'
 
   namespace :admin do
+    devise_for :users, path: "", only: [:sessions, :registrations], controllers: {
+        registrations: "admin/registrations",
+        sessions: "admin/sessions"}
     root to: "dash_broads#index"
     resources :dash_broads, only: :index
     resources :companies, except: %i(destroy index)
     resources :jobs
-    devise_for :users, path: "", only: :sessions, controllers: {
-        sessions: "admin/sessions"}
   end
 end
