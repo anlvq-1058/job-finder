@@ -1,18 +1,14 @@
 /*
+*= require magnific-popup
+*= require animate
 *= require bootstrap
-*= require_tree .
-*= require_self
+*= require font-awesome
+*= require fonts
+*= require reset
+*= require owl.carousel
+*= require owl_theme_default
+*= require flaticon
+*= require custom_front_end
 */
-@import "../node_modules/bootstrap/scss/bootstrap";
-@import "animate.css";
-@import "flaticon.css";
-@import "font-awesome.css";
-@import "custom.scss";
-@import "fonts.css";
-@import "magnific-popup.css";
-@import "owl.carousel.css";
-@import "reset.css";
-@import "responsive_map.css";
-@import "responsive.css";
+
 @import "toastr";
-@import "admin/*";

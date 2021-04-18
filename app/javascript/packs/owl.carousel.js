@@ -1657,7 +1657,6 @@
 	 * @todo Navigation plugin `next` and `prev`
 	 * @public
 	 */
-	(function ( $ ) { 
 	$.fn.owlCarousel = function(option) {
 		var args = Array.prototype.slice.call(arguments, 1);
 
@@ -1694,7 +1693,7 @@
 	 * @public
 	 */
 	$.fn.owlCarousel.Constructor = Owl;
-}( jQuery ));
+
 })(window.Zepto || window.jQuery, window, document);
 
 /**
@@ -1804,9 +1803,9 @@
 			typeof this[property] != 'function' && (this[property] = null);
 		}
 	};
-	(function ( $ ) { 
-		$.fn.owlCarousel.Constructor.Plugins.AutoRefresh = AutoRefresh;
-	}( jQuery ));
+
+	$.fn.owlCarousel.Constructor.Plugins.AutoRefresh = AutoRefresh;
+
 })(window.Zepto || window.jQuery, window, document);
 
 /**
@@ -1940,9 +1939,9 @@
 			typeof this[property] != 'function' && (this[property] = null);
 		}
 	};
-	(function ( $ ) { 
-		$.fn.owlCarousel.Constructor.Plugins.Lazy = Lazy;
-	}( jQuery ));
+
+	$.fn.owlCarousel.Constructor.Plugins.Lazy = Lazy;
+
 })(window.Zepto || window.jQuery, window, document);
 
 /**
@@ -2038,9 +2037,9 @@
 			typeof this[property] != 'function' && (this[property] = null);
 		}
 	};
-	(function ( $ ) { 
-		$.fn.owlCarousel.Constructor.Plugins.AutoHeight = AutoHeight;
-	}( jQuery ));
+
+	$.fn.owlCarousel.Constructor.Plugins.AutoHeight = AutoHeight;
+
 })(window.Zepto || window.jQuery, window, document);
 
 /**
@@ -2358,9 +2357,9 @@
 			typeof this[property] != 'function' && (this[property] = null);
 		}
 	};
-	(function ( $ ) { 
-		$.fn.owlCarousel.Constructor.Plugins.Video = Video;
-	}( jQuery ));
+
+	$.fn.owlCarousel.Constructor.Plugins.Video = Video;
+
 })(window.Zepto || window.jQuery, window, document);
 
 /**
@@ -2480,9 +2479,9 @@
 			typeof this[property] != 'function' && (this[property] = null);
 		}
 	};
-	(function ( $ ) { 
-		$.fn.owlCarousel.Constructor.Plugins.Animate = Animate;
-	}( jQuery ));
+
+	$.fn.owlCarousel.Constructor.Plugins.Animate = Animate;
+
 })(window.Zepto || window.jQuery, window, document);
 
 /**
@@ -2680,9 +2679,9 @@
 			typeof this[property] != 'function' && (this[property] = null);
 		}
 	};
-	(function ( $ ) { 
-		$.fn.owlCarousel.Constructor.Plugins.autoplay = Autoplay;
-	}( jQuery ));
+
+	$.fn.owlCarousel.Constructor.Plugins.autoplay = Autoplay;
+
 })(window.Zepto || window.jQuery, window, document);
 
 /**
@@ -3063,9 +3062,9 @@
 			$.proxy(this._overrides.to, this._core)(position, speed);
 		}
 	};
-	(function ( $ ) {
-		$.fn.owlCarousel.Constructor.Plugins.Navigation = Navigation;
-	}( jQuery ));
+
+	$.fn.owlCarousel.Constructor.Plugins.Navigation = Navigation;
+
 })(window.Zepto || window.jQuery, window, document);
 
 /**
@@ -3186,9 +3185,9 @@
 			typeof this[property] != 'function' && (this[property] = null);
 		}
 	};
-	(function ( $ ) { 
-		$.fn.owlCarousel.Constructor.Plugins.Hash = Hash;
-	}( jQuery ));	
+
+	$.fn.owlCarousel.Constructor.Plugins.Hash = Hash;
+
 })(window.Zepto || window.jQuery, window, document);
 
 /**
@@ -3201,7 +3200,7 @@
  * @license The MIT License (MIT)
  */
 ;(function($, window, document, undefined) {
-	(function ( $ ) {
+
 	var style = $('<support>').get(0).style,
 		prefixes = 'Webkit Moz O ms'.split(' '),
 		events = {
@@ -3272,5 +3271,5 @@
 		$.support.transform = new String(prefixed('transform'));
 		$.support.transform3d = tests.csstransforms3d();
 	}
-	}( jQuery ));
+
 })(window.Zepto || window.jQuery, window, document);
