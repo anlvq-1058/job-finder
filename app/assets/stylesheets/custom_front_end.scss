@@ -1,0 +1,80 @@
+.infor-dropdow {
+  width: 160px;
+  margin: auto;
+
+  .btn-group {
+    width: 100%;
+  }
+
+  .avatar {
+    display: inline-block;
+    object-fit: cover;
+    object-position: center;
+
+    &.ava-medium {
+      width: 150px;
+      height: 150px;
+    border-radius: 50%;
+    }
+
+    &.ava-small {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+    }
+
+    &.ava-large {
+      width: 100%;
+      padding: 5px
+    }
+  }
+
+  .dropdown-toggle span {
+    font-size: 18px;
+    margin-left: 10px;
+
+    i {
+      margin-left: 2px;
+    }
+  }
+
+  a.dropdown-item {
+    display: block;
+    padding: 3px 10px;
+    &:hover {
+      background-color: #23C0E9;
+      color: white;
+    }
+  }
+}
+
+.login_wrapper {
+  .new_user {
+    input {
+      border: 1px solid #eee;
+      border-radius: 5px;
+      display: block;
+      padding: 10px;
+      width: 100%;
+    }
+
+    #user_remember_me {
+      display: none;
+    }
+
+    .require {
+      &::after {
+        content: "*";
+        color: red;
+      }
+    }
+
+    .login_btn {
+      width: 100%;
+      line-height: 1.5em;
+      font-size: 20px;
+      font-weight: 600;
+      text-transform: capitalize;
+    }
+  }
+}

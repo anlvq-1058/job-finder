@@ -10,8 +10,10 @@
     <%= javascript_include_tag Ckeditor.cdn_url %>
     <% if check_page yield :title %>
       <%= stylesheet_link_tag "style.css", media: "all", "data-turbolinks-track": "reload" %>
+      <%= stylesheet_link_tag "responsive.css", media: "all", "data-turbolinks-track": "reload" %>
     <% else %>
       <%= stylesheet_link_tag "style_II.css", media: "all", "data-turbolinks-track": "reload" %>
+      <%= stylesheet_link_tag "responsive2.css", media: "all", "data-turbolinks-track": "reload" %>
     <% end %>
   </head>
 

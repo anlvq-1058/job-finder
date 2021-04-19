@@ -32,7 +32,7 @@ class Admin::JobsController < Admin::AdminController
       render admin_job_path(@job)
     end
   end
-  
+
   def destroy
     if @job.destroy
       flash[:success] = t "destroy success"
@@ -40,15 +40,15 @@ class Admin::JobsController < Admin::AdminController
     else
       flash.now[:danger] = t "destroy fail"
       redirect_to admin_jobs_path
-    end    
+    end
   end
 
   private
 
   def job_params
-    params.require(:job).permit Job::JOB_PARAMS      
+    params.require(:job).permit Job::JOB_PARAMS
   end
-  
+
   def load_job
     @job = Job.find_by id: params[:id]
     return if @job.present?
