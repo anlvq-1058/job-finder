@@ -1,31 +1,29 @@
 <div class="col-sm-4">
   <div class="card company-job">
     <% if current_user.recruiter? %>
-      <div class="dot-menu">
-        <%= link_to "#manage-jobs-#{job.id}", data: {toggle: "collapse"},
-          class: "nav-link", aria: {expanded: "false", controls: "manage-jobs-#{job.id}"} do %>
-          <i class="fas fa-ellipsis-h"></i>
-        <% end %>
-        <div class="collapse" id="manage-jobs-<%= job.id %>">
-          <ul class="nav flex-column sub-menu">
-            <li class="nav-item">
-              <%= link_to "Edit job", edit_admin_job_path(job.id) %>
-            </li>
-            <li class="nav-item">
-              <%= link_to [:admin, job], method: :delete, data: {confirm: "Are you sure want to delete this job?"} do %>
-                Delete
-              <% end %>
-            </li>
-          </ul>
-        </div>
+    <div class="dot-menu">
+      <%= link_to "#manage-jobs-#{job.id}", data: {toggle: "collapse"},
+      class: "nav-link", aria: {expanded: "false", controls: "manage-jobs-#{job.id}"} do %>
+      <i class="fas fa-ellipsis-h"></i>
+      <% end %>
+      <div class="collapse" id="manage-jobs-<%= job.id %>">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item">
+            <%= link_to "Edit job", edit_admin_job_path(job.id) %>
+          </li>
+          <li class="nav-item">
+            <%= link_to [:admin, job], method: :delete, data: {confirm: "Are you sure want to delete this job?"} do %>
+            Delete
+            <% end %>
+          </li>
+        </ul>
       </div>
+    </div>
     <% end %>
-
     <div class="card-horizontal">
       <div class="company-image">
         <%= show_company_avatar "large" %>
       </div>
-
       <div class="card-body">
         <h4 class="card-title job-title"><%= job.title %></h4>
         <p class="card-text company-name"><%= current_user.company.name %></p>
@@ -35,29 +33,29 @@
         </p>
         <p class="card-text end-at">
           <i class="fas fa-calendar-times"></i>
-          <%= job.end_at.strftime("%d/%m/%Y") %>
+          <%= job&.end_at&.strftime("%d/%m/%Y") %>
         </p>
         <p>
           <% job.locations.each do |location| %>
-            <span class="badge badge-pill badge-info location">
-              <i class="fas fa-map-marker-alt"></i>
-              <%= location.name %>
-            </span>
+          <span class="badge badge-pill badge-info location">
+            <i class="fas fa-map-marker-alt"></i>
+            <%= location.name %>
+          </span>
           <% end %>
         </p>
       </div>
     </div>
     <div class="card-footer">
-        <p>
-          <span class="badge badge-pill badge-success job-type">
-            <%= job.job_type %>
-          </span>
-        </p>
-        <% unless job.all_gender? %>
-          <span class="badge badge-pill badge-warning gender">
-            <%= job.gender %>
-          </span>
-        <% end %>
-      </div>
+      <p>
+        <span class="badge badge-pill badge-success job-type">
+          <%= job.job_type %>
+        </span>
+      </p>
+      <% unless job.all_gender? %>
+      <span class="badge badge-pill badge-warning gender">
+        <%= job.gender %>
+      </span>
+      <% end %>
+    </div>
   </div>
 </div>

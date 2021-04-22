@@ -1,8 +1,14 @@
 class Admin::JobsController < Admin::AdminController
   before_action :load_job, only: %i(edit update destroy)
+  before_action :search_attributes, only: %i(index)
 
   def index
-    @jobs = current_user.company.jobs.order(created_at: :desc).page(params[:page]).per(12)
+    @q = Job.ransack(params[:q])
+    @jobs = @q.result.includes(company: :user)
+                     .references(:company)
+                     .where('users.id = ?', current_user.id)
+                     .order(created_at: :desc)
+                     .page(params[:page]).per 12
   end
 
   def new
@@ -55,5 +61,37 @@ class Admin::JobsController < Admin::AdminController
 
     flash[:danger] = "Job not found"
     redirect_to admin_root_path
+  end
+
+  def search_attributes
+    exp = params.dig(:q, :experience)
+    case exp
+    when "1"
+      params[:q].merge!(experience_lt: 1)
+    when "2"
+      params[:q].merge!(experience_gteq: 1, experience_lteq: 3)
+    when "3"
+      params[:q].merge!(experience_gt: 3)
+    end
+
+    salary = params.dig(:q, :salary)
+    case salary
+    when "1"
+      params[:q].merge!(salary_gteq: 100, salary_lteq: 500)
+    when "2"
+      params[:q].merge!(salary_gteq: 500, salary_lteq: 1000)
+    when "3"
+      params[:q].merge!(salary_gteq: 1000, salary_lteq: 3000)
+    when "4"
+      params[:q].merge!(salary_gteq: 3000, salary_lteq: 5000)
+    when "5"
+      params[:q].merge!(salary_gteq: 5000, salary_lteq: 10000)
+    when "6"
+      params[:q].merge!(salary_gt: 10000)
+    end
+
+    if params.dig(:jobs_are_recruiting, :end_at) == "1"
+      params[:q].merge!(end_at_gteq: Date.today)
+    end
   end
 end
