@@ -20,66 +20,34 @@
           </div>
           <div class="jp_spotlight_slider_wrapper">
             <div class="owl-carousel owl-theme">
-              <div class="item">
-                <div class="jp_spotlight_slider_img_Wrapper">
-                  <%= image_tag "content/spotlight_img.jpg", title: "spotlight_img" %>
-                </div>
-                <div class="jp_spotlight_slider_cont_Wrapper">
-                  <h4>HTML Developer (1 - 2 Yrs Exp.)</h4>
-                  <p>Webstrot Technology Ltd.</p>
-                  <ul>
-                    <li><i class="fa fa-cc-paypal"></i>&nbsp; $12K - 15k P.A.</li>
-                    <li><i class="fa fa-map-marker"></i>&nbsp; Caliphonia, PO 455001</li>
-                  </ul>
-                </div>
-                <div class="jp_spotlight_slider_btn_wrapper">
-                  <div class="jp_spotlight_slider_btn">
+              <% @lated_job.each do |item| %>
+                <div class="item">
+                  <div class="jp_spotlight_slider_img_Wrapper">
+                    <%= image_tag "content/spotlight_img.jpg", title: "spotlight_img" %>
+                  </div>
+                  <div class="jp_spotlight_slider_cont_Wrapper">
+                    <h4><%= item.title %>(<%= item.experience %> Yrs Exp.)</h4>
+                    <p><%= item.company.name %></p>
                     <ul>
-                      <li><a href="#"><i class="fa fa-plus-circle"></i> &nbsp;ADD RESUME</a></li>
+                      <li><i class="fas fa-money-bill-wave"></i>&nbsp; <%= item.salary %>$</li>
+                      <li><i class="fa fa-map-marker"></i>&nbsp; <%= item.locations.pluck(:name).join("-") %></li>
                     </ul>
                   </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="jp_spotlight_slider_img_Wrapper">
-                  <%= image_tag "content/spotlight_img.jpg", title: "spotlight_img" %>
-                </div>
-                <div class="jp_spotlight_slider_cont_Wrapper">
-                  <h4>HTML Developer (1 - 2 Yrs Exp.)</h4>
-                  <p>Webstrot Technology Ltd.</p>
-                  <ul>
-                    <li><i class="fa fa-cc-paypal"></i>&nbsp; $12K - 15k P.A.</li>
-                    <li><i class="fa fa-map-marker"></i>&nbsp; Caliphonia, PO 455001</li>
-                  </ul>
-                </div>
-                <div class="jp_spotlight_slider_btn_wrapper">
-                  <div class="jp_spotlight_slider_btn">
-                    <ul>
-                      <li><a href="#"><i class="fa fa-plus-circle"></i> &nbsp;ADD RESUME</a></li>
-                    </ul>
+                  <div class="jp_spotlight_slider_btn_wrapper">
+                    <div class="jp_spotlight_slider_btn">
+                      <ul>
+                            
+                        <li>
+                          <%= link_to job_path(item) do %>
+                            <i class="fa fa-plus-circle"></i>&nbsp;
+                            ADD RESUME
+                          <% end %>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="item">
-                <div class="jp_spotlight_slider_img_Wrapper">
-                  <%= image_tag "content/spotlight_img.jpg", title: "spotlight_img" %>
-                </div>
-                <div class="jp_spotlight_slider_cont_Wrapper">
-                  <h4>HTML Developer (1 - 2 Yrs Exp.)</h4>
-                  <p>Webstrot Technology Ltd.</p>
-                  <ul>
-                    <li><i class="fa fa-cc-paypal"></i>&nbsp; $12K - 15k P.A.</li>
-                    <li><i class="fa fa-map-marker"></i>&nbsp; Caliphonia, PO 455001</li>
-                  </ul>
-                </div>
-                <div class="jp_spotlight_slider_btn_wrapper">
-                  <div class="jp_spotlight_slider_btn">
-                    <ul>
-                      <li><a href="#"><i class="fa fa-plus-circle"></i> &nbsp;ADD RESUME</a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
+              <% end %>
             </div>
           </div>
         </div>

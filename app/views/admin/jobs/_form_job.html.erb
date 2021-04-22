@@ -23,7 +23,7 @@
         <div class="col-md-4">
           <div class="form-group bmd-form-group row">
             <%= f.label :end_at, "End at: ", class: "" %>
-            <%= f.date_field :end_at, {class: "form-control"} %>
+            <%= f.date_field :end_at, {class: "form-control", value:  job.end_at ? job.end_at.to_s : Date.current.to_s} %>
           </div>
         </div>
         <div class="col-md-4">
@@ -55,7 +55,7 @@
         <div class="col-md-3">
           <div class="form-group bmd-form-group">
             <%= f.label :address, "Address: ", class: "bmd-label-floating" %>
-            <%= f.text_field :address, class: "form-control" %>
+            <%= f.text_area :address, class: "form-control" %>
           </div>
         </div>
       </div>

@@ -1,12 +1,13 @@
 class StaticPagesController < ApplicationController
   def home
-    @jobs = Job.all
-    @job_full_time = Job.where(job_type: "full_time")
-    @job_part_time = Job.where(job_type: "part_time")
+    @jobs = Job.unexpired
+    @job_full_time = Job.unexpired.full_time
+    @job_part_time = Job.unexpired.part_time
 
-    @count_jobs = @jobs.size%10 != 0 ? (@jobs.size/10 + 1) : @jobs.size/10
-    @count_job_full_time = @job_full_time.size%10 != 0 ? (@job_full_time.size/10 + 1) : @job_full_time.size/10
-    @count_job_part_time = @job_part_time.size%10 != 0 ? (@job_part_time.size/10 + 1) : @job_part_time.size/10
+    @count_jobs = paginate @jobs
+    @count_job_full_time = paginate @job_full_time
+    @count_job_part_time = paginate @job_part_time
+    @lated_job = Job.unexpired.job_in_week
   end
 
   def contact; end
