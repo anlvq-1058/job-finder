@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
   layout :base_layout
 
-
   def check_recruiter_permit
     return if current_user.recruiter?
 
@@ -20,7 +19,11 @@ class ApplicationController < ActionController::Base
   end
 
   def base_layout
-    return "application" if current_user.blank? 
+    return "application" if current_user.blank?
     current_user.recruiter? ? "application_admin" : "application"
+  end
+
+  def paginate jobs
+    jobs.size % 10 >= 1 ? (jobs.size/10 + 1) : jobs.size/10
   end
 end

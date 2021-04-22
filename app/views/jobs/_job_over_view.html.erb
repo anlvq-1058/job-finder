@@ -1,0 +1,136 @@
+<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="jp_rightside_job_categories_wrapper jp_rightside_listing_single_wrapper">
+        <div class="jp_rightside_job_categories_heading">
+          <h4>Job Overview</h4>
+        </div>
+        <div class="jp_jop_overview_img_wrapper">
+          <div class="jp_jop_overview_img">
+            <%= show_company_avatar job, "large" %>
+          </div>
+        </div>
+        <div class="jp_job_listing_single_post_right_cont">
+          <div class="jp_job_listing_single_post_right_cont_wrapper">
+            <h4>
+              <%= job.title %> (<%= years_exp job %>)
+            </h4>
+            <p>
+              <%= job.company.name %>
+            </p>
+          </div>
+        </div>
+        <div class="jp_job_post_right_overview_btn_wrapper">
+          <div class="jp_job_post_right_overview_btn">
+            <ul>
+              <li><a href="#"><i class="far fa-heart"></i></a></li>
+              <li><a href="#">
+                  <%= job.job_type %>
+                </a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="jp_listing_overview_list_outside_main_wrapper">
+          <div class="jp_listing_overview_list_main_wrapper">
+            <div class="jp_listing_list_icon">
+              <i class="fa fa-calendar"></i>
+            </div>
+            <div class="jp_listing_list_icon_cont_wrapper">
+              <ul>
+                <li>Date Posted:</li>
+                <li>
+                  <%= job.created_at.strftime("%d/%m/%Y") %>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="jp_listing_overview_list_main_wrapper jp_listing_overview_list_main_wrapper2">
+            <div class="jp_listing_list_icon">
+              <i class="fa fa-map-marker"></i>
+            </div>
+            <div class="jp_listing_list_icon_cont_wrapper">
+              <ul>
+                <li>Address:</li>
+                <li class="address">
+                  <%= sanitize job.address %>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="jp_listing_overview_list_main_wrapper jp_listing_overview_list_main_wrapper2">
+            <div class="jp_listing_list_icon">
+              <i class="fa fa-info-circle"></i>
+            </div>
+            <div class="jp_listing_list_icon_cont_wrapper">
+              <ul>
+                <li>Job Title:</li>
+                <li>
+                  <%= job.title %>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="jp_listing_overview_list_main_wrapper jp_listing_overview_list_main_wrapper2">
+            <div class="jp_listing_list_icon">
+              <i class="fa fa-money"></i>
+            </div>
+            <div class="jp_listing_list_icon_cont_wrapper">
+              <ul>
+                <li>Salary:</li>
+                <li>
+                  <%= number_with_delimiter job.salary %>$
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="jp_listing_overview_list_main_wrapper jp_listing_overview_list_main_wrapper2">
+            <div class="jp_listing_list_icon">
+              <i class="fa fa-star"></i>
+            </div>
+            <div class="jp_listing_list_icon_cont_wrapper">
+              <ul>
+                <li>Experience:</li>
+                <li>
+                  <%= years_exp job %>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="jp_listing_overview_list_main_wrapper jp_listing_overview_list_main_wrapper2">
+            <div class="jp_listing_list_icon">
+              <i class="fas fa-venus-mars"></i>
+            </div>
+            <div class="jp_listing_list_icon_cont_wrapper">
+              <ul>
+                <li>Gender:</li>
+                <li>
+                  <%= job.gender %>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="jp_listing_overview_list_main_wrapper jp_listing_overview_list_main_wrapper2">
+            <div class="jp_listing_list_icon">
+              <i class="fas fa-globe-asia"></i>
+            </div>
+            <div class="jp_listing_list_icon_cont_wrapper">
+              <ul>
+                <li>Location:</li>
+                <li>
+                  <%= job.locations.pluck(:name).join(" - ") %>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="jp_listing_right_bar_btn_wrapper">
+            <div class="jp_listing_right_bar_btn">
+              <ul>
+                <li><a href="#"><i class="fa fa-plus-circle"></i> &nbsp;Apply NOw!</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

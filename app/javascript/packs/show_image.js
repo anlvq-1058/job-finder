@@ -7,5 +7,5 @@ export function showPreviewImage() {
 export function fadeout_error() {
   window.setTimeout(function(){
     $('#error_explanation').addClass('fadeout');
-  }, 3000);
+  }, 10000);
 }
