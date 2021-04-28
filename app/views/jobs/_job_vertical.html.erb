@@ -14,7 +14,7 @@
           </p>
           <ul>
             <li><i class="fas fa-money-bill-wave"></i>&nbsp; <%= number_with_delimiter job.salary %>$</li>
-            <li><i class="fa fa-map-marker"></i>&nbsp; <%= job.company.address %>
+            <li><i class="fa fa-map-marker"></i>&nbsp; <%= job.locations.pluck(:name).join(" - ") %>
             </li>
           </ul>
         </div>
