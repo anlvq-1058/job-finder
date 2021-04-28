@@ -1,0 +1,44 @@
+<% provide :title, @job.title %>
+<div class="jp_listing_single_main_wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+        <div class="jp_listing_left_sidebar_wrapper">
+          <%= @job.describe %>
+        </div>
+        <div class="jp_listing_left_bottom_sidebar_wrapper">
+          <div class="jp_listing_left_bottom_sidebar_social_wrapper">
+            <ul class="hidden-xs">
+              <li>SHARE :</li>
+              <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+              <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+              <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+              <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+              <li class="hidden-xs"><a href="#"><i class="fab fa-google-plus"></i></a></li>
+              <li class="hidden-xs"><a href="#"><i class="fab fa-vimeo"></i></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="jp_listing_left_bottom_sidebar_key_wrapper">
+        </div>
+        <div class="jp_listing_related_heading_wrapper">
+          <h2>Related Jobs</h2>
+          <div class=" owl-theme">
+            <% @count_jobs.times do |n| %>
+              <div class="item" data-hash=<%=n %> >
+                <% job_start=n.to_i * 10 %>
+                <% job_end=job_start.to_i + 9 %>
+                <% @related_jobs.each_with_index do |job, index| %>
+                  <% if job_start <=index && index <=job_end %>
+                    <%= render 'job_vertical', job: job %>
+                  <% end %>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <%= render "job_over_view", job: @job %>
+    </div>
+  </div>
+</div>

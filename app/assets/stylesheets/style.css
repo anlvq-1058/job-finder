@@ -2087,7 +2087,7 @@ ul{
 	padding-top:5px;
 }
 .jp_spotlight_slider_cont_Wrapper li{
-	float:left;
+	float: unset;
 }
 .jp_spotlight_slider_cont_Wrapper li i{
 	color:#f36969;

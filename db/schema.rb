@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_30_170359) do
+ActiveRecord::Schema.define(version: 2021_04_20_073556) do
 
   create_table "action_text_rich_texts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -91,7 +91,7 @@ ActiveRecord::Schema.define(version: 2021_03_30_170359) do
     t.text "describe"
     t.integer "salary"
     t.string "address"
-    t.integer "status"
+    t.integer "status", default: 0
     t.date "end_at"
     t.integer "experience"
     t.integer "gender", default: 0

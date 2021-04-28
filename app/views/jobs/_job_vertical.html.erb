@@ -1,0 +1,39 @@
+<div class="jp_job_post_main_wrapper_cont">
+  <div class="jp_job_post_main_wrapper">
+    <div class="row">
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+        <div class="jp_job_post_side_img">
+          <%= show_company_avatar job, "large" %>
+        </div>
+        <div class="jp_job_post_right_cont">
+          <h4>
+            <%= job.title %>
+          </h4>
+          <p>
+            <%= job.company.name %>
+          </p>
+          <ul>
+            <li><i class="fas fa-money-bill-wave"></i>&nbsp; <%= number_with_delimiter job.salary %>$</li>
+            <li><i class="fa fa-map-marker"></i>&nbsp; <%= job.company.address %>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+        <div class="jp_job_post_right_btn_wrapper">
+          <ul>
+            <li><a href="#"><i class="far fa-heart"></i></a></li>
+            <li><a href="#">
+                <%= checked_type_job job %>
+              </a></li>
+            <li>
+              <%= link_to 'Apply now' , job_path(job) %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="jp_job_post_keyword_wrapper">
+  </div>
+</div>
