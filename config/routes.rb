@@ -6,7 +6,11 @@ Rails.application.routes.draw do
 
   root to: 'static_pages#home'
   resources :resumes
-  resources :jobs, only: :show
+  resources :jobs, only: :show do
+    member do
+      resources :apply_jobs, only: :create
+    end
+  end
   resources :active_users, only: :update
   resources :inactive_users, only: :update
   resources :public_resumes, only: :update

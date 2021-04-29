@@ -17,6 +17,9 @@ class ResumesController < ApplicationController
 
   def create
     @resume = current_user.resumes.build resume_params
+    
+    # binding.pry
+    
     if @resume.save
       flash[:success] = t "create success"
       redirect_to resumes_path
