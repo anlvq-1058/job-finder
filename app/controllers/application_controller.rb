@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  before_action :store_current_location, unless: :devise_controller?
+
   layout :base_layout
 
   def check_recruiter_permit
@@ -25,5 +27,9 @@ class ApplicationController < ActionController::Base
 
   def paginate jobs
     jobs.size % 10 >= 1 ? (jobs.size/10 + 1) : jobs.size/10
+  end
+
+  def store_current_location
+    store_location_for(:user, request.url)
   end
 end

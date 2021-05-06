@@ -14,7 +14,7 @@
               <span>Select Image</span>
             </div>
           <% end %>
-          <%= f.file_field :avatar, class: "chose-img hidden" %>
+          <%= f.file_field :avatar, class: "chose-img hidden", accept: "image/jpeg,image/gif,image/png" %>
           <div class="form-group">
             <h2><%= current_user.name %></h2>
           </div>

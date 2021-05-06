@@ -10,6 +10,7 @@ class Resume < ApplicationRecord
   has_many :add_ons, dependent: :destroy
   has_many :resume_skills, dependent: :destroy
   has_many :skills, through: :resume_skills
+  has_and_belongs_to_many :jobs
 
   accepts_nested_attributes_for :add_ons, :resume_skills, reject_if: :all_blank, allow_destroy: true
 

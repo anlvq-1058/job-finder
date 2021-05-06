@@ -6,6 +6,7 @@ class Admin::CompaniesController < Admin::AdminController
   end
 
   def create
+    binding.pry
     @company = current_user.build_company company_params
     if @company.save
       flash[:success] = "Create company success"

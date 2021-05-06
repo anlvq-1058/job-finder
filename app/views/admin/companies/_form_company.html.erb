@@ -49,12 +49,12 @@
           <div class="form-group">
             <div class="form-group bmd-form-group">
               <%= f.label :avatar, class: "select-avatar point" do %>
-              <%= show_company_avatar "medium" %>
+              <%= show_company_avatar_img @company, "medium" %>
                 <div class="top-over">
                   <span>Select Image</span>
                 </div>
               <% end %>
-              <%= f.file_field :avatar, class: "chose-img hidden" %>
+              <%= f.file_field :avatar, class: "chose-img hidden", accept: "image/jpeg,image/gif,image/png" %>
             </div>
           </div>
         </div>

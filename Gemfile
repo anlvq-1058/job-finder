@@ -10,7 +10,6 @@ gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 4.0'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
-gem 'i18n'
 gem 'carrierwave', '~> 2.0'
 gem "recaptcha"
 gem 'toastr-rails'

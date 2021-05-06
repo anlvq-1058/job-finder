@@ -11,6 +11,8 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   def after_sign_in_path_for user
+    redirect_to stored_location_for(user) if stored_location_for(user).present? && current_user.candidate?
+
     return root_url if current_user.candidate?
     return admin_dash_broads_url if current_user.recruiter?
   end

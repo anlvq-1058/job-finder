@@ -14,7 +14,7 @@
         Dashbroad
       <% end %>
     </li>
-    <% if current_user.company.present? %>
+    <% if current_user.company&.id %>
       <li class="nav-item">
         <%= link_to edit_admin_company_path(current_user.company), class: "nav-link" do %>
           <i class="fas fa-building"></i>

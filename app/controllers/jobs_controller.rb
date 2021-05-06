@@ -2,8 +2,8 @@ class JobsController < ApplicationController
   before_action :load_job, only: :show
 
   def show
-  @related_jobs = Job.unexpired.where(company_id: @job.company.id).where.not(id: @job.id).limit(5)
-  @count_jobs = paginate @related_jobs
+    @related_jobs = Job.unexpired.where(company_id: @job.company.id).where.not(id: @job.id).limit(5)
+    @count_jobs = paginate @related_jobs
   end
 
   private

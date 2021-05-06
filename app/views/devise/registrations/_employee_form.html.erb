@@ -30,7 +30,7 @@
     <div class="form-group col-md-6 col-sm-6 col-xs-12 custom_input">
       <% unless yield(:title).eql?("Edit #{resource_name.to_s.humanize}") %>
         <%= f.label :avatar, "Avatar:" do %>
-          <%= f.file_field :avatar %>
+          <%= f.file_field :avatar, accept: "image/jpeg,image/gif,image/png" %>
           <%= f.hidden_field :avatar_cache %>
         <% end %>
       <% else %>
@@ -40,7 +40,7 @@
             <span>Select Image</span>
           </div>
         <% end %>
-        <%= f.file_field :avatar, class: "chose-img hidden" %>
+        <%= f.file_field :avatar, class: "chose-img hidden", accept: "image/jpeg,image/gif,image/png" %>
       <% end %>
       <p>JPG, JPEG, GIF, PNG - 5MB MAX SIZE</p>
     </div>

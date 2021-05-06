@@ -123,9 +123,22 @@
             </div>
           </div>
           <div class="jp_listing_right_bar_btn_wrapper">
-            <div class="jp_listing_right_bar_btn">
+            <div class="jp_listing_right_bar_btn" id="apply-job">
               <ul>
-                <li><a href="#"><i class="fa fa-plus-circle"></i> &nbsp;Apply NOw!</a></li>
+                <li>
+                  
+                  <% if user_signed_in? %>
+                    <%= link_to apply_jobs_path(job), remote: true, data: {confirm: "Are you want to do this?"}, method: :post do %>
+                      <i class="fa fa-plus-circle"></i>&nbsp;
+                      APPLY NOW!
+                    <% end %>
+                  <% else %>
+                    <%= link_to new_user_session_path do %>
+                      <i class="fa fa-plus-circle"></i>&nbsp;
+                      APPLY NOW!
+                    <% end %>
+                  <% end %>
+                </li>
               </ul>
             </div>
           </div>
