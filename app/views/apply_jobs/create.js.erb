@@ -1,0 +1,8 @@
+<% if @errors.any? %>
+  <% @errors.each do |error| %>
+    toastr.error( '<%= j error %>', '', { closeButton: true, progressBar: true })
+  <% end %>  
+<% else %>
+  toastr.success('Apply success', '', { closeButton: true, progressBar: true })
+  $('#apply-job').html('')
+<% end %>

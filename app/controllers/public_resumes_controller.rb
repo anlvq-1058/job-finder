@@ -2,7 +2,7 @@ class PublicResumesController < ActionController::Base
   before_action :authenticate_user!
 
   def update
-    @resume = Resume.find_by(id: params[:id])
+    @resume = Resume.find_by id: params[:id]
     resumes = current_user.resumes
     @other_resume = resumes.reject{|resume| resume.eql?(@resume)}
     @error = "not found object" if resumes.exclude?(@resume) || @resume.blank?

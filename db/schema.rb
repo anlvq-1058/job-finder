@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_20_073556) do
+ActiveRecord::Schema.define(version: 2021_04_28_112430) do
 
   create_table "action_text_rich_texts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -84,6 +84,11 @@ ActiveRecord::Schema.define(version: 2021_04_20_073556) do
     t.index ["job_id", "location_id"], name: "index_job_locations_on_job_id_and_location_id", unique: true
     t.index ["job_id"], name: "index_job_locations_on_job_id"
     t.index ["location_id"], name: "index_job_locations_on_location_id"
+  end
+
+  create_table "job_resumes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "job_id"
+    t.integer "resume"
   end
 
   create_table "jobs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
