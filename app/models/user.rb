@@ -6,6 +6,8 @@ class User < ApplicationRecord
          :omniauthable , omniauth_providers: [:facebook, :google_oauth2]
 
   validates :name, presence: true, length: {minimum:1, maximum:50}
+  validates :email, presence: true, uniqueness: true,
+            length: {maximum: 100}
   validate :avatar_size
 
   has_many :resumes, dependent: :destroy
@@ -14,6 +16,8 @@ class User < ApplicationRecord
   enum role: {candidate: 0, recruiter: 1}
   enum status: {active: 0, inactive: 1}, _suffix: true
   enum gender: {male: 0, female: 1}
+
+  before_save :downcase_email
 
   def self.from_omniauth(auth)
     result = User.where(email: auth.info.email).first
@@ -40,5 +44,9 @@ class User < ApplicationRecord
     return if avatar.size < 5000000
     
     errors.add(:avatar, "file size must be lower than 5MB")
+  end
+
+  def downcase_email
+    email.downcase
   end
 end

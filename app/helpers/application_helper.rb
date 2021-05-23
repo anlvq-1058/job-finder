@@ -32,6 +32,11 @@ module ApplicationHelper
     class: "avatar ava-#{avatar_size}"
   end
 
+  def show_company_avatar_img  company, avatar_size
+    image_tag company.avatar.url || "content/default-avatar.png",
+    class: "avatar ava-#{avatar_size}"
+  end
+
   def years_exp job
     job.experience.blank? || job.experience.zero? ? "" : "#{job.experience} Yrs Exp."
   end
