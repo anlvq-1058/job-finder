@@ -40,4 +40,13 @@ module ApplicationHelper
   def years_exp job
     job.experience.blank? || job.experience.zero? ? "" : "#{job.experience} Yrs Exp."
   end
+
+  def page_index params_page, index, per_page
+    params_page ||= 1
+    (params_page.to_i - 1) * per_page.to_i + index.to_i + 1
+  end
+
+  def find_resume resume_id
+    Resume.with_deleted.find resume_id
+  end
 end

@@ -1,0 +1,46 @@
+<div class="list-candidate">
+  <h3> List Candidate Apply</h3>
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Apply Date</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if apply_resumes.present? %>
+      <% apply_resumes.each_with_index do |apply_resume, index| %>
+        <tr>
+          <th scope="row"><%= page_index params[:page], index, 12 %></th>
+          <td>
+          <%= link_to find_resume(apply_resume.resume_id).user.name, admin_resume_path(apply_resume.resume_id), target: "_blank" %>
+          </td>
+          <td><%= apply_resume.updated_at.strftime("%d/%m/%Y") %></td>
+          <td>
+            <span id="resume-status-<%= apply_resume.id %>">
+              <% if apply_resume.uncheck_status? && apply_resume.resume.present? %>
+                  <%= link_to admin_apply_resume_path(apply_resume), method: :patch, remote: true, class: "btn btn-primary btn-sm", data: {confirm: "Are you want to do this?"} do %>
+                  <i class="fas fa-check"></i>
+                <% end %>
+                <%= link_to admin_apply_resume_path(apply_resume), method: :delete, remote: true, class: "btn btn-danger btn-sm", data: {confirm: "Are you want to do this?"} do %>
+                  <i class="fas fa-times-circle"></i>
+                <% end %>
+              <% else %>
+                <span class="badge badge-<%= apply_resume.approve_status? ? "success" : "danger" %>"><%= apply_resume.status %></span>
+              <% end %>
+            </span>
+          </td>
+        </tr>
+      <% end %>
+    <% else %>
+      <tr>
+        <td colspan="4">
+          <h3 style="text-align: center;">No data</h3>
+        </td>
+      </tr> 
+    <% end %>
+  </tbody>
+</table>
+</div>

@@ -1,6 +1,7 @@
 class Admin::JobsController < Admin::AdminController
   before_action :load_job, only: %i(edit update destroy)
   before_action :search_attributes, only: %i(index)
+  before_action :authenticate_user!
 
   def index
     @q = Job.ransack(params[:q])

@@ -1,10 +1,13 @@
 <% provide :title, @job.title %>
 <div class="jp_listing_single_main_wrapper">
   <div class="container">
+    <% if current_user&.recruiter? %>
+      <%= render "admin/jobs/list_candidate", apply_resumes: @apply_resumes, job: @job %>
+    <% end %>
     <div class="row">
       <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
         <div class="jp_listing_left_sidebar_wrapper">
-          <%= @job.describe %>
+          <%= raw @job.describe %>
         </div>
         <div class="jp_listing_left_bottom_sidebar_wrapper">
           <div class="jp_listing_left_bottom_sidebar_social_wrapper">

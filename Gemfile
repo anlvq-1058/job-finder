@@ -23,6 +23,7 @@ gem "cocoon"
 gem "ckeditor"
 gem "kaminari"
 gem "ransack", "~> 2.4", ">= 2.4.2"
+gem "paranoia", "~> 2.2"
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
