@@ -5,7 +5,8 @@ class Job < ApplicationRecord
   has_many :job_locations
   has_many :locations, through: :job_locations
   belongs_to :company
-  has_and_belongs_to_many :resumes
+  has_many :job_resumes
+  has_many :resumes, through: :job_resumes
 
   validates :title, presence: true, length: {minimum: 1, maximum: 100}
   validates :describe, presence: true, length: {minimum: 1, maximum: 10000}

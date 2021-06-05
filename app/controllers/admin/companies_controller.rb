@@ -1,19 +1,19 @@
 class Admin::CompaniesController < Admin::AdminController
   before_action :load_company, except: %i(new create)
+  before_action :authenticate_user!
 
   def new
     @company = current_user.build_company
   end
 
   def create
-    binding.pry
     @company = current_user.build_company company_params
     if @company.save
       flash[:success] = "Create company success"
       redirect_to admin_root_path
     else
       flash[:danger] = "Create company false"
-      redirect_to admin_root_path
+      redirect_to :new
     end
   end
 

@@ -12,6 +12,9 @@
             <%= link_to "Edit job", edit_admin_job_path(job.id) %>
           </li>
           <li class="nav-item">
+            <%= link_to "View job", job_path(job.id) %>
+          </li>
+          <li class="nav-item">
             <%= link_to [:admin, job], method: :delete, data: {confirm: "Are you sure want to delete this job?"} do %>
             Delete
             <% end %>

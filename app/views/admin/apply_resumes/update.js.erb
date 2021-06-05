@@ -1,0 +1,5 @@
+<% if @error.present? %>
+  toastr.error( '<%= j @error %>', '', { closeButton: true, progressBar: true })
+<% else %>
+  $('#resume-status-<%= @apply_resume.id %>').html('<span class="badge badge-success"> Approve </span>')
+<% end %>

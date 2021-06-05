@@ -22,6 +22,8 @@ Rails.application.routes.draw do
     resources :dash_broads, only: :index
     resources :companies, except: %i(destroy index)
     resources :jobs
+    resources :resumes, only: :show
+    resources :apply_resumes, only: %i(update destroy)
     devise_for :users, path: "", only: :sessions, controllers: {
         sessions: "admin/sessions"}
   end

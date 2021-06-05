@@ -1,6 +1,7 @@
 class AddOn < ApplicationRecord
+  acts_as_paranoid
+
   belongs_to :resume
-  has_rich_text :content
 
   validates :title, length: {maximum: 100}
   validates :time, length: {maximum: 100}

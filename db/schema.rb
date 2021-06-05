@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_28_112430) do
+ActiveRecord::Schema.define(version: 2021_05_29_095250) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "name", null: false
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2021_04_28_112430) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "resume_id"
+    t.datetime "deleted_at"
     t.index ["resume_id"], name: "index_add_ons_on_resume_id"
   end
 
@@ -78,7 +79,10 @@ ActiveRecord::Schema.define(version: 2021_04_28_112430) do
 
   create_table "job_resumes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.integer "job_id"
-    t.integer "resume"
+    t.integer "resume_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "status", default: 0
   end
 
   create_table "jobs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
@@ -109,6 +113,7 @@ ActiveRecord::Schema.define(version: 2021_04_28_112430) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "resume_id"
     t.bigint "skill_id"
+    t.datetime "deleted_at"
     t.index ["resume_id", "skill_id"], name: "index_resume_skills_on_resume_id_and_skill_id", unique: true
     t.index ["resume_id"], name: "index_resume_skills_on_resume_id"
     t.index ["skill_id"], name: "index_resume_skills_on_skill_id"
@@ -127,6 +132,7 @@ ActiveRecord::Schema.define(version: 2021_04_28_112430) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
     t.string "position"
+    t.datetime "deleted_at"
     t.index ["user_id"], name: "index_resumes_on_user_id"
   end
 
