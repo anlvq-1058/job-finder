@@ -1,5 +1,5 @@
 class ApplyJobsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, :check_candidate_permit
 
   def create
     @errors = []

@@ -1,0 +1,16 @@
+<% company = item.first %>
+<div class="item">
+  <div class="jp_hiring_content_main_wrapper">
+    <div class="jp_hiring_content_wrapper">
+      <%= show_company_avatar_img  company, "medium" %>
+      <h4><%= company.name %></h4>
+      <ul>
+        <li>
+          <%= link_to company_path(company) do %>
+            <%= item.second %> Opening
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

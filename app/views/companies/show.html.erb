@@ -1,0 +1,40 @@
+<% provide :title, @company.name %>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="jp_cs_com_info_wrapper">
+        <div class="jp_cs_com_info_img">
+          <%= show_company_avatar_img  @company, "medium" %>
+        </div>
+        <div class="jp_cs_com_info_img_cont">
+          <h2 style="text-transform: uppercase;"><%= @company.name %></h2>
+          <p><i class="fas fa-calendar-alt"></i> Founded: <%= @company.founded %></p>
+          <p><i class="fas fa-globe-asia"></i> Website: <%= @company.website %></p>
+          <p><i class="fa fa-map-marker"></i> Address: <%= @company.address %></p>
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <%= sanitize @company.description %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="jp_listing_related_heading_wrapper">
+    <h2>Related Jobs</h2>
+    <div class=" owl-theme">
+      <% @count_jobs.times do |n| %>
+        <div class="item" data-hash=<%=n %> >
+          <% job_start=n.to_i * 10 %>
+          <% job_end=job_start.to_i + 9 %>
+          <% @related_jobs.each_with_index do |job, index| %>
+            <% if job_start <=index && index <=job_end %>
+              <%= render 'jobs/job_vertical', job: job %>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+</div>

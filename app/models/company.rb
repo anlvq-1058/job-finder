@@ -10,7 +10,7 @@ class Company < ApplicationRecord
   validates :website, length: {minimum: 1, maximum: 100}
   validates :description, length: {minimum: 1, maximum: 500}
   validates :address, presence: true, length: {minimum: 1, maximum: 100}
-  validate :avatar_size  
+  validate :avatar_size
 
   private
 

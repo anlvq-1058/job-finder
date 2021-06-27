@@ -39,7 +39,7 @@
           <div class="form-group">
             <div class="form-group bmd-form-group">
               <%= f.label :description, "Company Description: ", class: "bmd-label-floating" %>
-              <%= f.text_area :description, class: "form-control", rows: "5" %>
+              <%= f.cktext_area :description, cols: 40, ckeditor: { uiColor: '#9124a3', toolbar: 'mini' } %>
             </div>
           </div>
         </div>
