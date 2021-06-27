@@ -1,5 +1,5 @@
 class PrivateResumesController < ActionController::Base
-  before_action :authenticate_user!
+  before_action :authenticate_user!, :check_candidate_permit
 
   def update
     @resume = Resume.find_by(id: params[:id])

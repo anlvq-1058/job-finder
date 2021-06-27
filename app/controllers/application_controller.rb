@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
     no_permit
   end
 
-  def check_recruiter_permit
+  def check_candidate_permit
     return if current_user.candidate?
 
     no_permit

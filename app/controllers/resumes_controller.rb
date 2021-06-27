@@ -2,6 +2,7 @@ class ResumesController < ApplicationController
   before_action :load_resume, except: %i(index new create)
   before_action :check_resume_number, only: %i(new create)
   before_action :authenticate_user!
+  before_action :check_candidate_permit, except: :show
 
   def index
     @resumes = current_user.resumes

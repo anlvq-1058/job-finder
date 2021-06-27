@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :inactive_users, only: :update
   resources :public_resumes, only: :update
   resources :private_resumes, only: :update
+  resources :companies, only: :show
   get '/contact', to: 'static_pages#contact'
 
   namespace :admin do

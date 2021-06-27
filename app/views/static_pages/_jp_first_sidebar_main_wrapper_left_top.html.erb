@@ -5,54 +5,7 @@
     </div>
     <div class="jp_hiring_slider_wrapper">
       <div class="owl-carousel owl-theme">
-        <div class="item">
-          <div class="jp_hiring_content_main_wrapper">
-            <div class="jp_hiring_content_wrapper">
-              <%= image_tag "content/hiring_img1.png", title: "hiring_img" %>
-              <h4>Akshay INC.</h4>
-              <p>(NewYork)</p>
-              <ul>
-                <li><a href="#">4 Opening</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="jp_hiring_content_main_wrapper">
-            <div class="jp_hiring_content_wrapper">
-              <%= image_tag "content/hiring_img2.png", title: "hiring_img" %>
-              <h4>Akshay INC.</h4>
-              <p>(NewYork)</p>
-              <ul>
-                <li><a href="#">4 Opening</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="jp_hiring_content_main_wrapper">
-            <div class="jp_hiring_content_wrapper">
-              <%= image_tag "content/hiring_img3.png", title: "hiring_img" %>
-              <h4>Akshay INC.</h4>
-              <p>(NewYork)</p>
-              <ul>
-                <li><a href="#">4 Opening</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="jp_hiring_content_main_wrapper">
-            <div class="jp_hiring_content_wrapper">
-              <%= image_tag "content/hiring_img4.png", title: "hiring_img" %>
-              <h4>Akshay INC.</h4>
-              <p>(NewYork)</p>
-              <ul>
-                <li><a href="#">4 Opening</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
+        <%= render partial: "top_hiring_company", collection: @company_top_hiring, as: :item %>
       </div>
     </div>
   </div>

@@ -4,7 +4,7 @@ class JobsController < ApplicationController
   def show
     @related_jobs = Job.unexpired.where(company_id: @job.company.id).where.not(id: @job.id).limit(5)
     @count_jobs = paginate @related_jobs
-    @apply_resumes = show_resume if current_user.recruiter?
+    @apply_resumes = show_resume if current_user&.recruiter?
   end
 
   private
