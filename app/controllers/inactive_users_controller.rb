@@ -1,5 +1,5 @@
-class InactiveUsersController < ActionController::Base
-  before_action :authenticate_user!, :check_candidate_permit
+class InactiveUsersController < ApplicationController
+  before_action :authenticate_user!, :check_candidate_permit, only: :update
 
   def update
     current_user.inactive_status!

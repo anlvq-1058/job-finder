@@ -9,6 +9,7 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true,
             length: {maximum: 100}
   validate :avatar_size
+  validate :password_complexity
 
   has_many :resumes, dependent: :destroy
   has_one :company
@@ -48,5 +49,12 @@ class User < ApplicationRecord
 
   def downcase_email
     email.downcase
+  end
+
+  def password_complexity
+    # Regexp extracted from https://stackoverflow.com/questions/19605150/regex-for-password-must-contain-at-least-eight-characters-at-least-one-number-a
+    return if password.blank? || password =~ /\A(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,128}\z/
+
+    errors.add :password, 'Complexity requirement not met. Length should be 8-70 characters and include: 1 uppercase, 1 lowercase, 1 digit and 1 special character'
   end
 end

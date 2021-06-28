@@ -1,5 +1,5 @@
-class ActiveUsersController < ActionController::Base
-  before_action :authenticate_user!, :check_candidate_permit
+class ActiveUsersController < ApplicationController
+  before_action :authenticate_user!, :check_candidate_permit, only: :update
 
   def update
     current_user.active_status!

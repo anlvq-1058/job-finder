@@ -7182,7 +7182,6 @@ input[type="checkbox"]:checked + label:after {
     display: block;
     width: 100%;
     background: #ffffff;
-	text-transform:capitalize;
     font-size: 15px;
     line-height: 26px;
     color: #888888;

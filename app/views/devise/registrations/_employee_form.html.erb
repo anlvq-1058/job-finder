@@ -18,8 +18,15 @@
     </div>
     <!--Form Group-->
     <div class="form-group col-md-6 col-sm-6 col-xs-12">
-      <%= f.label :password, "Password:", class: yield(:class) %> <span class="subtext">(leave blank to keep password)</span>
+      <%= f.label :password, "Password:", class: yield(:class) %>
       <%= f.password_field :password %>
+      <span class="subtext">
+        <% if yield(:title).eql?("Sign up")  %>
+          (Length should be 8-70 characters and include: 1 uppercase, 1 lowercase, 1 digit and 1 special character)
+        <% else %>
+          (leave blank to keep password)
+        <% end %>
+      </span>
     </div>
     <!--Form Group-->
     <div class="form-group col-md-6 col-sm-6 col-xs-12">
