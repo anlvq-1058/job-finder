@@ -20,7 +20,7 @@ class Admin::CompaniesController < Admin::AdminController
   def edit; end
 
   def update
-    if Company.update company_params
+    if @company.update company_params
       flash[:success] = "Update company success"
       redirect_to admin_root_path
     else
