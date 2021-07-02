@@ -3,7 +3,7 @@ class Admin::ApplyResumesController < Admin::AdminController
 
   def update
     @error = "error" unless @apply_resume.uncheck_status? && @apply_resume.approve_status!
-    UserApplyMailer.approved(@apply_resume).deliver_now unless @error
+    SendEmailJob.perform_later(:approved, @apply_resume) unless @error
     respond_to do |format|
       format.js
     end
@@ -11,7 +11,7 @@ class Admin::ApplyResumesController < Admin::AdminController
 
   def destroy
     @error = "error" unless @apply_resume.uncheck_status? && @apply_resume.cancel_status!
-    UserApplyMailer.cancel(@apply_resume).deliver_now unless @error
+    SendEmailJob.perform_later(:cancel, @apply_resume) unless @error
     respond_to do |format|
       format.js
     end

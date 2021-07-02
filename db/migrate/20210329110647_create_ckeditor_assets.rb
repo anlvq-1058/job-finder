@@ -12,7 +12,7 @@ class CreateCkeditorAssets < ActiveRecord::Migration[5.2]
       # t.integer :width
       # t.integer :height
 
-      t.timestamps null: falsec
+      t.timestamps null: false
     end
 
     add_index :ckeditor_assets, :type
